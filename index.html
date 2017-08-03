@@ -6,11 +6,12 @@
     </head>
     <body>
 <button onclick="timeRunning()">Notify me!</button>
+        <p id="demo"><p>
 <script>
     
     function timeRunning()
     {
-    var countDownDate = new Date("Aug 3, 2017 20:43:25").getTime();
+    var countDownDate = new Date("Aug 3, 2017 20:45:25").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -32,7 +33,7 @@ var x = setInterval(function() {
     + minutes + "m " + seconds + "s ";
     
     // If the count down is over, write some text 
-    if (distance < 0) {
+    if (distance == 0) {
     notifyMe();            
     }
 }, 1000);
