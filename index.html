@@ -1,17 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Thông báo trên trình duyệt</title>
-    </head>
-    <body>
-<button onclick="timeRunning()">Notify me!</button>
-        <p id="demo"><p>
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+p {
+  text-align: center;
+  font-size: 60px;
+}
+</style>
+</head>
+<body>
+
+<p id="demo"></p>
+
 <script>
-    
-    function timeRunning()
-    {
-    var countDownDate = new Date("Aug 3, 2017 20:45:25").getTime();
+// Set the date we're counting down to
+var countDownDate = new Date("Jan 5, 2018 15:37:25").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -33,38 +36,12 @@ var x = setInterval(function() {
     + minutes + "m " + seconds + "s ";
     
     // If the count down is over, write some text 
-    if (distance == 0) {
-    notifyMe();            
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
     }
 }, 1000);
-    }
-    
-    
-function notifyMe() {
-  // Let's check if the browser supports notifications
-  if (!("Notification" in window)) {
-    alert("This browser does not support desktop notification");
-  }
-
-  // Let's check whether notification permissions have already been granted
-  else if (Notification.permission == "granted") {
-    // If it's okay let's create a notification
-    var notification = new Notification("Hi there!");
-  }
-
-  // Otherwise, we need to ask the user for permission
-  else if (Notification.permission != "denied") {
-    Notification.requestPermission(function (permission) {
-      // If the user accepts, let's create a notification
-      if (permission == "granted") {
-        var notification = new Notification("Hi there!");
-      }
-    });
-  }
-
-  // At last, if the user has denied notifications, and you 
-  // want to be respectful there is no need to bother them any more.
-}
 </script>
-    </body>
+
+</body>
 </html>
