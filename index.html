@@ -8,15 +8,15 @@ p {
 }
 </style>
 </head>
-<body>
+<body onload="timerRun()">
 
 <p id="demo"></p>
-<button onclick="timerRun()">button</button>
+
 <script>
   function timerRun()
   {
 // Set the date we're counting down to
-var countDownDate = new Date("Aug 3, 2017 20:50:25").getTime();
+var countDownDate = new Date("Aug 3, 2017 20:52:25").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
