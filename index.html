@@ -11,7 +11,18 @@ p {
 <body onload="timerRun()">
 
 <p id="demo"></p>
-
+<link rel="manifest" href="/manifest.json">
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+  <script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(["init", {
+      appId: "af80acca-f22e-49de-a963-e22551415c31",
+      autoRegister: true,
+      notifyButton: {
+        enable: true /* Set to false to hide */
+      }
+    }]);
+  </script>
 <script>
   function timerRun()
   {
@@ -71,6 +82,7 @@ var x = setInterval(function() {
   // At last, if the user has denied notifications, and you 
   // want to be respectful there is no need to bother them any more.
 }
+  
   
 </script>
 
